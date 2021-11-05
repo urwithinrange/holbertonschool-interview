@@ -6,7 +6,7 @@ def canUnlockAll(boxes):
     """Determines if a box can be opened"""
     keyring = [0]
     lastBox = 0
-    
+
     while lastBox < len(keyring):
         lastBox = len(keyring)
         for box in range(len(boxes)):
