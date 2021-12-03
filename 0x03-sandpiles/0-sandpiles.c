@@ -60,6 +60,7 @@ static void print_grid(int temp_grid[3][3])
 	{
 		for (j = 0; j < 3; j++)
 		{
+			prinf(" ");
 			printf("%d", temp_grid[i][j]);
 		}
 		printf("\n");
