@@ -7,18 +7,15 @@
  */
 int is_palindrome(unsigned long int n)
 {
-        unsigned long int tmp = 0, n_copy;
+	unsigned long int tmp = 0, n_copy = n;
 
-        if (n < tmp || n % 10 == 0)
-                return (0);
-        n_copy = n;
-        while (n_copy > 0)
-        {
-                tmp = tmp * 10 + n_copy % 10;
-                n_copy /= 10;
-        }
-        if (tmp == n)
-                return (1);
-        else
-                return (0);
+	while (n_copy > 0)
+	{
+	tmp = tmp * 10 + n_copy % 10;
+	n_copy /= 10;
+	if (tmp == n)
+		return (1);
+	else
+		return (0);
+	}
 }
