@@ -11,11 +11,12 @@ int is_palindrome(unsigned long int n)
 
 	while (n_copy > 0)
 	{
-	tmp = tmp * 10 + n_copy % 10;
-	n_copy /= 10;
+		tmp = tmp * 10 + n_copy % 10;
+		n_copy /= 10;
+	}
 	if (tmp == n)
 		return (1);
 	else
 		return (0);
-	}
+
 }
