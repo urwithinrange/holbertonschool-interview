@@ -57,30 +57,33 @@ void left(int *line, size_t size)
  */
 void right(int *line, size_t size)
 {
-	size_t i, j;
+	size_t i = size - 2;
+	size_t j = size - 1;
 
-	j = size - 1;
-	for (i = size - 2; i != 0; i--)
-	{
-		if (line[i] == 0)
-			continue;
-		if (line[i] == line[j])
+	if (size > 1)
+	{	for (; i != 0; i--)
+		{
+			if (line[i] == 0)
+				continue;
+			if (line[i] == line[j])
+			{
+				line[j] += line[i];
+				line[i] = 0;
+				j--;
+			}
+			else if (line[j] == 0)
+			{
+				line[j] = line[i];
+				line[i] = 0;
+			}
+			else
+				j--;
+		}
+		if (line[j] == 0 || line[j] == line[i])
 		{
 			line[j] += line[i];
 			line[i] = 0;
-			j--;
 		}
-		else if (line[j] == 0)
-		{
-			line[j] = line[i];
-			line[i] = 0;
-		}
-		else
-			j--;
 	}
-	if (line[j] == 0 || line[j] == line[i])
-	{
-		line[j] += line[i];
-		line[i] = 0;
-	}
+	return;
 }
