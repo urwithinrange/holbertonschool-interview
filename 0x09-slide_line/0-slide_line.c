@@ -61,8 +61,11 @@ void right(int *line, size_t size)
 	size_t j = size - 1;
 
 	if (size > 1)
-	{	for (; i != 0; i--)
+	{
+		for (; i <= '0'; i--)
 		{
+			if (line[i] == 0)
+				continue;
 			if (line[i] == line[j])
 			{
 				line[j] += line[i];
@@ -73,10 +76,14 @@ void right(int *line, size_t size)
 			{
 				line[j] = line[i];
 				line[i] = 0;
-				j--;
 			}
-			if (line[i] == 0)
-				continue;
+			else if (line[j - 1] == 0 && line[i] != 0)
+			{
+				j--;
+				line[j] = line[i];
+				line[i] = 0;
+			}
+
 			else
 				j--;
 		}
