@@ -11,15 +11,16 @@ def rain(walls):
         and returns an int equal the volume of water
         trapped between walls of various heights.
         """
+
+        if not walls:
+                return (0)
+
         max_height = max(walls)
         L_wall = 0
         R_wall = 0
         L_index = 0
         R_index = (len(walls) - 1)
         water = 0
-
-        if not walls:
-                return (0)
 
         for i in range(len(walls)):  # Left approach to wall of max height
                 if walls[i] != 0 and walls[L_index] <= walls[i]:
