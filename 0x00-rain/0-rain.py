@@ -34,8 +34,8 @@ def rain(walls):
                 if walls[r] != 0 and walls[R_index] <= walls[r]:
                         R_wall = walls[r]
                         R_index = r  # Wall index height > 0
-                if walls[r] != 0 and R_wall > walls[r]:
-                        water += R_wall - walls[r] #Underwater wall
+                if walls[r] != 0 and R_wall > walls[r]:  # Underwater wall
+                        water += R_wall - walls[r]
                 elif walls[r] == 0 and R_wall > 0:
                         water += R_wall  # Add water if an amount is present
                 if R_index == L_index:
