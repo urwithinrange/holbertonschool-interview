@@ -16,29 +16,22 @@ def rain(walls):
                 return (0)
 
         max_height = max(walls)
-        L_wall = 0
-        R_wall = 0
-        L_index = 0
-        R_index = (len(walls) - 1)
+        L_wall, R_wall = 0, 0
+        L_index, R_index = 0, len(walls) - 1
         water = 0
 
         for i in range(len(walls)):  # Left approach to wall of max height
-                if walls[i] != 0 and walls[L_index] <= walls[i]:
-                        L_wall = walls[i]
-                        L_index = i  # Wall index height > 0
-                elif walls[i] == 0 and L_wall > 0:
-                        water += L_wall  # Add water if an amount is present
+                if walls[i] != max_height:
+                        L_wall = max(L_wall, walls[i])  # = highest value
+                        water += L_wall - walls[i]  # vol less underwater wall
                 if walls[i] == max_height:
                         L_index = i  # The index of the wall of max height
                         break
         for r in range(len(walls) - 1, -1, -1):  # Right approach to L index
-                if walls[r] != 0 and walls[R_index] <= walls[r]:
-                        R_wall = walls[r]
+                if R_index != L_index:
+                        R_wall = max(R_wall, walls[r])  # = highest value
                         R_index = r  # Wall index height > 0
-                if walls[r] != 0 and R_wall > walls[r]:  # Underwater wall
-                        water += R_wall - walls[r]
-                elif walls[r] == 0 and R_wall > 0:
-                        water += R_wall  # Add water if an amount is present
+                        water += R_wall - walls[r]  # vol less underwater wall
                 if R_index == L_index:
                         break  # Break when the R index == L index
         return (water)
