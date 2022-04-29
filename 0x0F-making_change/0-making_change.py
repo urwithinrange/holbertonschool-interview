@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Function that returns the minimum number of coins needed to make change """
 
+
 def makeChange(coins, total):
         """
         Function that returns the minimum number of coins needed to make change
